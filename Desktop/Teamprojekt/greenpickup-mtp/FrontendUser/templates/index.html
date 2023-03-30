@@ -1,0 +1,99 @@
+<!--
+Html code partly taken and inspired from here
+https://codepen.io/FlorinPop17/pen/vPKWjd
+ -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/x-icon" href="https://openlayers.org/favicon.ico" />
+	  <!--<link rel="stylesheet" href="style.css">-->
+	  <link rel="stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
+	  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.0/css/bootstrap.min.css" integrity="sha256-/ykJw/wDxMa0AQhHDYfuMEwVb4JHMx9h4jD4XvHqVzU=" crossorigin="anonymous" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Index Html file</title>
+
+  </head>
+  <body>
+    <div id="map"></div>
+    <!--<script type="module" src="../static/styles/main.js"></script>-->
+	<script type="module" src="{{url_for('static', filename='styles/main.js')}}"></script>
+
+	<h2>Green Parcel Delivery - Team Project</h2>
+<div class="container" id="container">
+	<div class="form-container sign-up-container">
+		<form action="#">
+
+			<p></p>
+			<button style="background-color:#37a287">Sustainability</button>
+			<p>by reducing the carbon emissions caused by delivery vehicles</p>
+			<button style="background-color:#9ebb64">Decentralized Pick-Up System</button>
+			<p>making detours no longer necessary to pick up ones parcel</p>
+			<button  style="background-color:#ee9733">Zero-Emission Delivery</button>
+			<p>through the usage of electric biciles for the movement of the mobile pick up stations</p>
+
+		</form>
+	</div>
+	<div class="form-container sign-in-container">
+		<form action="#">
+			<h1>Get your parcel</h1>
+				<div class="form-group">
+					<input type="text" class="form-control" placeholder="{{content}}">
+					<!--<button type="submit" class="btn btn-primary">►</button>-->
+					<a class="btn btn-primary" href="{{ url_for('map') }}" style = "background-color: #4AC2A4">►</a>
+				</div>
+					<!--
+					<input type="email" placeholder="Parcel number" />
+					<button class="button button5" >►</button>
+					-->
+			<p></p>
+			<a href="#">Dont have your parcel number?</a>
+			<button>Get Assistance</button>
+		</form>
+	</div>
+	<div class="overlay-container">
+		<div class="overlay">
+			<div class="overlay-panel overlay-left">
+				<h1>Green is smart!</h1>
+				<p>We aim to deliver parcels using mobile pick-up stations. Customers will be able to pick up their orders at the places that they already frequent anayways. This will reduce traffic flow and emission as the pick-up stations will move with the populace. </p>
+				<button class="ghost" id="signIn">Go Back</button>
+			</div>
+			<div class="overlay-panel overlay-right">
+
+				<h1>What is this?</h1>
+				<p>The Green parcel delivery project is about delivering a smart alternative to classic pick up stations and home delivery of parcels. <br> To learn more about the green parcel delivery project click the button below.</p>
+
+				<button class="ghost" id="signUp">Learn more</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<footer>
+	<p>
+		Created by Alicia Böhret, Daniel Hostadt, David Svistea, Reares Rahaian, Michael Klassen and Thomas Frey within their master team project. Find out more:
+		<a target="_blank" href="https://www.uni-mannheim.de/en/ines/teaching/european-master-team-project/project-route-planning-tool-for-green-parcel-delivery/">here</a>.
+
+	</p>
+</footer>
+  </body>
+</html>
+
+
+
+<!--
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/x-icon" href="https://openlayers.org/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Using OpenLayers with Vite</title>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>
+-->

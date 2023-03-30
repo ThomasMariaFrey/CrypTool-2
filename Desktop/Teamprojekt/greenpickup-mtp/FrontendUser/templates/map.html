@@ -1,0 +1,190 @@
+<!--
+Html code partly taken and inspired from here
+https://codepen.io/FlorinPop17/pen/vPKWjd
+ -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/x-icon" href="https://openlayers.org/favicon.ico" />
+	  <!--<link rel="stylesheet" href="style.css">-->
+	  <link rel="stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/map.css') }}">
+	  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.0/css/bootstrap.min.css" integrity="sha256-/ykJw/wDxMa0AQhHDYfuMEwVb4JHMx9h4jD4XvHqVzU=" crossorigin="anonymous" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-----here are the imports of necessary libraries for the datepicker functionalities-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/smoothness/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
+    <title>Index Html file</title>
+  </head>
+
+  <!-- --->
+  <!--
+  <style>
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #1270DC;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: #1270DC;
+}
+
+.topnav a.active {
+  background-color: #1270DC;
+
+  color: white;
+}
+</style>
+-->
+</head>
+<body>
+
+<div class="topnav">
+	<!--
+  <a class="active" href="#home">Menu</a>
+  -->
+	<a href="#home">Menu</a>
+  <a href="#news">Green Pickup</a>
+	<a href="#news">Current Time</a>
+  <a href="#contact">K7474</a>
+  <a href="#about">User Profile</a>
+</div>
+<!-- --->
+<!--
+<div style="padding-left:16px">
+  <h2>Top Navigation Example</h2>
+  <p>Some content..</p>
+</div>
+-->
+
+
+
+    <div id="map"></div>
+    <!--<script type="module" src="../static/styles/main.js"></script>-->
+	<script type="module" src="{{url_for('static', filename='styles/map.js')}}"></script>
+	<!--
+	<h2>Green Parcel Delivery - Map</h2>
+	-->
+	<div class="container" id="container">
+		<div class="form-container sign-in-container">
+			    <div id="map-container">
+					{{ map|safe }}
+    			</div>
+		</div>
+		<div class="overlay-container">
+			<div class="overlay">
+				<div class="overlay-panel overlay-right">
+					<h1>Add / Change Pickup</h1>
+          <div>
+            <label for="choose_area">Choose an area:</label>
+            <select id="choose_area" name="choose_area">
+                <option value="area1">Bad-Cannstatt</option>
+                <option value="area2">Birkach</option>
+                <option value="area3">Botnang</option>
+                <option value="area4">Degerloch</option>
+                <option value="area5">Feuerbach</option>
+                <option value="area6">Münster</option>
+                <option value="area7">Möhringen</option>
+            </select>
+          </div>
+					<form method="POST">
+            <label for="selected_date">Select a date:</label>
+            <input type="text" id="selected_date" name="selected_date">
+    
+            <label for="selected_time">Select a time:</label>
+            <select id="selected_time" name="selected_time">
+                <option value="time1">8.00 Uhr</option>
+                <option value="time2">13.00 Uhr</option>
+                <option value="time3">18.00 Uhr</option>
+            </select>
+    
+            <button type="submit">Submit</button>
+        </form>
+
+        <!---jQuery init for selected_date as datepicker-->
+        <script>
+          $(function() {
+              $("#selected_date").datepicker();
+          });
+        </script>
+				</div>
+			</div>
+		</div>
+	</div>
+
+    <footer>
+		<p>
+			Created by Alicia Böhret, Daniel Hostadt, David Svistea, Reares Rahaian, Michael Klassen and Thomas Frey within their master team project. Find out more:
+			<a target="_blank" href="https://www.uni-mannheim.de/en/ines/teaching/european-master-team-project/project-route-planning-tool-for-green-parcel-delivery/">here</a>.
+		</p>
+	</footer>
+  </body>
+</html>
+
+
+
+<!--
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/x-icon" href="https://openlayers.org/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Using OpenLayers with Vite</title>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>
+-->
+<!--
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>OpenLayers Demo</title>
+    <style type="text/css">
+      html, body, #basicMap {
+          width: 100%;
+          height: 100%;
+          margin: 0;
+      }
+    </style>
+    <script src="../static/styles/OpenLayers.js"></script>
+    <script>
+      function init() {
+        map = new OpenLayers.Map("basicMap");
+        var mapnik         = new OpenLayers.Layer.OSM();
+        var fromProjection = new OpenLayers.Projection("EPSG:4326");   // Transform from WGS 1984
+        var toProjection   = new OpenLayers.Projection("EPSG:900913"); // to Spherical Mercator Projection
+        var position       = new OpenLayers.LonLat(13.41,52.52).transform( fromProjection, toProjection);
+        var zoom           = 15;
+
+        map.addLayer(mapnik);
+        map.setCenter(position, zoom );
+      }
+    </script>
+  </head>
+  <body onload="init();">
+    <div id="basicMap"></div>
+  </body>
+</html>
+-->

@@ -1,0 +1,7 @@
+{
+  "name": "FrontendFlask",
+  "version": "1.0.0",
+  "dependencies": {
+    "d3-fetch": "^3.0.1"
+  }
+}
